@@ -11,8 +11,7 @@ class KhanwarsSimplifierConan(ConanFile):
     topics = ("<Put some tag here>", "<here>", "<and here>")
     settings = "os", "compiler", "build_type", "arch"
     generators = "cmake"
-    requires = "qt/6.0.3"
-    default_options="qt/6.0.3:shared=False"
+    requires = "qt/6.0.4"
 
     def config_options(self):
         pass

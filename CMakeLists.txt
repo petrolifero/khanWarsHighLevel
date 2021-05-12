@@ -4,7 +4,7 @@ enable_testing()
 
 set(CMAKE_AUTOMOC ON)
 
-find_package(Qt6 6.0.3 EXACT REQUIRED)
+find_package(Qt6 6.0.4 EXACT REQUIRED)
 
 set(CMAKE_CXX_STANDARD 17)
 add_compile_options(-fPIC)
@@ -19,7 +19,6 @@ target_link_libraries(main PRIVATE Qt6::Core)
 target_link_libraries(main PRIVATE user)
 target_link_libraries(main PRIVATE console)
 target_link_libraries(main PRIVATE api)
-
 
 
 
