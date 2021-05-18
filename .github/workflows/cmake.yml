@@ -20,4 +20,4 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Configure Project
-      run: python3 -m pip install conan && sudo apt install cmake ninja-build -y && mkdir -p build && cd build && conan install .. -gcmake_find_package && conan build ..     
+      run: python3 -m pip install conan && conan profile update settings.compiler.libcxx=libstdc++11 default && sudo apt install cmake ninja-build libgl-dev -y && mkdir -p build && cd build && conan install .. -gcmake_find_package && conan build ..     
