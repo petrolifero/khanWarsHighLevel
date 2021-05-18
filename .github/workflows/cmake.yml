@@ -20,4 +20,4 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Configure Project
-      run: mkdir -p build && cd build && conan install .. -gcmake_find_package && conan build ..     
+      run: python3 -m pip install conan && sudo apt install cmake ninja -y && mkdir -p build && cd build && conan install .. -gcmake_find_package && conan build ..     
