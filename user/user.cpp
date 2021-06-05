@@ -1,3 +1,3 @@
 #include <user.hpp>
 
-user::user(std::string username,std::string password,khanWarsAPI&& api) : username(username),password(password),api(std::move(api)) {}
+user::user(environmentVariableAuth auth,khanWarsAPI&& api) : username(auth.username()),password(auth.password()),api(std::move(api)) {}

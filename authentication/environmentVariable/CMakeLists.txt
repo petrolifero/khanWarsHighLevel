@@ -1,0 +1,3 @@
+add_library(environmentVariableAuth STATIC environmentVariableAuth.cpp)
+target_include_directories(environmentVariableAuth PUBLIC .)
+target_link_libraries(environmentVariableAuth PUBLIC authentication)

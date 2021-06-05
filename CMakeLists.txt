@@ -9,6 +9,7 @@ find_package(Qt6 6.0.4 EXACT REQUIRED)
 set(CMAKE_CXX_STANDARD 17)
 add_compile_options(-fPIC)
 
+add_subdirectory(authentication)
 add_subdirectory(api)
 add_subdirectory(user)
 add_subdirectory(console)
@@ -19,7 +20,7 @@ target_link_libraries(main PRIVATE Qt6::Core)
 target_link_libraries(main PRIVATE user)
 target_link_libraries(main PRIVATE console)
 target_link_libraries(main PRIVATE api)
-
+target_link_libraries(main PRIVATE environmentVariableAuth)
 
 
 add_test(NAME findUsernameAndPassword COMMAND main)

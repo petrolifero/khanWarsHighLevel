@@ -14,7 +14,7 @@ public:
 };
 
 
-khanWarsAPI::khanWarsAPI(std::string username, std::string password):impl(std::make_unique<khanWarsAPIimpl>())
+khanWarsAPI::khanWarsAPI(environmentVariableAuth auth):impl(std::make_unique<khanWarsAPIimpl>())
 { 
 }
 
