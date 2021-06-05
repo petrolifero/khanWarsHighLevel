@@ -5,13 +5,10 @@
 #include <stack>
 #include <memory>
 
-// this is the necessary qt to use the public api
-// in the future, conan will be able to use only
-// some components
 
 #include <QJsonDocument>
 
-
+#include <environmentVariableAuth.hpp>
 
 class khanWarsAPI
 {
@@ -20,7 +17,7 @@ private:
   class khanWarsAPIimpl;
   std::unique_ptr<khanWarsAPIimpl> impl;
 public:
-  khanWarsAPI(std::string username,std::string password);
+  khanWarsAPI(environmentVariableAuth auth);
   khanWarsAPI(khanWarsAPI&& other);
   khanWarsAPI(const khanWarsAPI& other);
   ~khanWarsAPI();
