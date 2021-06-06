@@ -13,15 +13,11 @@ add_subdirectory(authentication)
 add_subdirectory(api)
 add_subdirectory(user)
 add_subdirectory(console)
+add_subdirectory(app)
 
 add_executable(main main.cpp)
 
-target_link_libraries(main PRIVATE Qt6::Core)
-target_link_libraries(main PRIVATE user)
-target_link_libraries(main PRIVATE console)
-target_link_libraries(main PRIVATE api)
-target_link_libraries(main PRIVATE environmentVariableAuth)
-
+target_link_libraries(main PRIVATE app)
 
 add_test(NAME findUsernameAndPassword COMMAND main)
 set(sucessTestEnv "KHANWARS_USERNAME=petrolifero" "KHANWARS_PASSWORD=123")

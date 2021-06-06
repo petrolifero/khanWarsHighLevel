@@ -1,0 +1,7 @@
+add_library(app STATIC app.cpp)
+target_include_directories(app PUBLIC .)
+target_link_libraries(app PRIVATE Qt6::Core)
+target_link_libraries(app PRIVATE user)
+target_link_libraries(app PRIVATE console)
+target_link_libraries(app PRIVATE api)
+target_link_libraries(app PRIVATE environmentVariableAuth)
