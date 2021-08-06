@@ -4,7 +4,7 @@ enable_testing()
 
 set(CMAKE_AUTOMOC ON)
 
-find_package(Qt6 6.0.4 EXACT REQUIRED)
+find_package(Qt6 6.1.1 EXACT REQUIRED)
 
 set(CMAKE_CXX_STANDARD 17)
 add_compile_options(-fPIC)
