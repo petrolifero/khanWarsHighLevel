@@ -23,7 +23,7 @@ jobs:
       run: python3 -m pip install conan  && sudo apt install cmake ninja-build libgl-dev -y && mkdir -p build
     - name: Configure conan
       working-directory: build
-      run: conan profile update settings.compiler.libcxx=libstdc++11 default
+      run: conan profile new default --detect && conan profile update settings.compiler.libcxx=libstdc++11 default
     - name: install conan dependencies
       working-directory: build
       run: conan install .. -gcmake_find_package
