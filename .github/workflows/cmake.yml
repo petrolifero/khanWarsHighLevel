@@ -36,6 +36,8 @@ jobs:
     - name: 'Upload Artifact'
       uses: actions/upload-artifact@v2
       with:
-        name: actualDiagram
-        path: diagrams/actual.png
+        name: Diagrams
+        path: |
+	  diagrams/actual.png
+	  diagrams/goal.png
         retention-days: 5
