@@ -1,3 +1,89 @@
 @startuml
 
+
+
+
+
+/' Objects '/
+
+class app {
+	+app(int argc, char** argv)
+	-argv : char**
+	-argc : int
+	+run() : int
+}
+
+
+abstract class authentication {
+	-{abstract} isInvalid() : bool
+	-{abstract} password() : std::string
+	-{abstract} username() : std::string
+}
+
+abstract class UI {
+}
+
+class console {
+	+console(user sessionUser, QObject* parent)
+	+~console()
+	-sessionUser : user
+	#run() : void
+}
+
+
+class environmentVariableAuth {
+	+environmentVariableAuth()
+	+isInvalid() : bool
+	+password() : std::string
+	+username() : std::string
+}
+
+
+class khanWarsAPI {
+	+khanWarsAPI(environmentVariableAuth auth)
+	+khanWarsAPI(khanWarsAPI&& other)
+	+khanWarsAPI(const khanWarsAPI& other)
+	+~khanWarsAPI()
+	+avaliableElements() : std::stack<QJsonDocument>
+	-impl : std::unique_ptr<khanWarsAPIimpl>
+	+castles() : void
+}
+
+
+class user {
+	+user(environmentVariableAuth auth, khanWarsAPI&& api)
+	+user(const user& other)
+	-api : khanWarsAPI
+	-password : std::string
+	-username : std::string
+}
+
+
+
+
+
+/' Inheritance relationships '/
+
+.authentication <|-- .environmentVariableAuth
+.UI <|-- .console
+
+
+
+
+/' Aggregation relationships '/
+
+.console *-- .user
+
+
+.user *-- .khanWarsAPI
+
+
+
+
+
+
+/' Nested objects '/
+
+
+
 @enduml

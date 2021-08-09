@@ -9,3 +9,4 @@ do
 done
 hpp2plantuml $includeOptions -o actual.puml
 plantuml actual.puml
+plantuml goal.puml
