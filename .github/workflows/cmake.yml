@@ -33,3 +33,9 @@ jobs:
     - name: Create actual Diagrams
       working-directory: diagrams
       run: chmod +x makeDiagram.sh && ./makeDiagram.sh
+    - name: 'Upload Artifact'
+      uses: actions/upload-artifact@v2
+      with:
+        name: actualDiagram
+        path: diagrams/actual.png
+        retention-days: 5
