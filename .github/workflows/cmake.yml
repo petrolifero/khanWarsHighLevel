@@ -38,6 +38,6 @@ jobs:
       with:
         name: Diagrams
         path: |
-	  diagrams/actual.png
-	  diagrams/goal.png
+          diagrams/actual.png
+          diagrams/goal.png
         retention-days: 5
