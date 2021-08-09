@@ -19,5 +19,17 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - name: Configure Project
-      run: python3 -m pip install conan  && sudo apt install cmake ninja-build libgl-dev -y && mkdir -p build && cd build && ( conan install .. -gcmake_find_package || (conan profile update settings.compiler.libcxx=libstdc++11 default &&  conan install .. -gcmake_find_package ) ) && conan build .. && chmod +x ../diagrams/makeDiagram.sh && cd ../diagrams && ./makeDiagram.sh
+    - name: Configure NonBuild Dependencies
+      run: python3 -m pip install conan  && sudo apt install cmake ninja-build libgl-dev -y && mkdir -p build
+    - name: Configure conan
+      working-directory: build
+      run: conan profile update settings.compiler.libcxx=libstdc++11 default
+    - name: install conan dependencies
+      working-directory: build
+      run: conan install .. -gcmake_find_package
+    - name: build
+      working-directory: build
+      run: conan build ..
+    - name: Create actual Diagrams
+      working-directory: diagrams
+      run: chmod +x makeDiagram.sh && ./makeDiagram.sh
