@@ -19,9 +19,4 @@ add_executable(main main.cpp)
 
 target_link_libraries(main PRIVATE app)
 
-add_test(NAME findUsernameAndPassword COMMAND main)
-set(sucessTestEnv "KHANWARS_USERNAME=petrolifero" "KHANWARS_PASSWORD=123")
-set_tests_properties(findUsernameAndPassword PROPERTIES ENVIRONMENT "${sucessTestEnv}")
-
-add_test(NAME dontFindUsernameOrPassword COMMAND main)
-set_tests_properties(dontFindUsernameOrPassword PROPERTIES WILL_FAIL true)
+include(test.cmake)
