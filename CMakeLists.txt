@@ -2,6 +2,8 @@ cmake_minimum_required(VERSION 3.19.3)
 project(khanWars)
 enable_testing()
 
+find_package(Qt6 REQUIRED)
+
 add_subdirectory(authentication)
 add_subdirectory(api)
 add_subdirectory(user)
